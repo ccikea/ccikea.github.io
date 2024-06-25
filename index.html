@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>裝備強化系統</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>裝備強化系統</h1>
+        <div class="form-and-history">
+            <form id="enhance-form">
+                <label for="start-star">從星數開始:</label>
+                <input type="number" id="start-star" name="start-star" min="0" max="29" value="0">
+
+                <label for="enhance-count">欲強化次數:</label>
+                <input type="number" id="enhance-count" name="enhance-count" placeholder="次數" min="1">
+
+                <fieldset>
+                    <legend>額外選項:</legend>
+                    <input type="checkbox" id="success-boost" name="success-boost">
+                    <label for="success-boost">成功機率+5%</label><br>
+                    <input type="checkbox" id="no-downgrade" name="no-downgrade">
+                    <label for="no-downgrade">下降機率變為0%盾牌捲</label><br>
+                    <input type="checkbox" id="no-destruction" name="no-destruction">
+                    <label for="no-destruction">破壞機率變為0%的保護捲</label>
+                </fieldset>
+
+                <button type="button" id="start-enhance">開始強化</button>
+                <button type="button" id="reset-data">重置數據</button>
+            </form>
+
+            <div class="history-container">
+                <h2>歷史紀錄</h2>
+                <ul id="history"></ul>
+            </div>
+        </div>
+        <div class="statistics-container">
+            <div class="statistics-group">
+                <p>成功次數: <span id="success-count">0</span></p>
+                <p>維持次數: <span id="maintain-count">0</span></p>
+                <p>下降次數: <span id="downgrade-count">0</span></p>
+                <p>破壞次數: <span id="destroy-count">0</span></p>
+            </div>
+            <div class="statistics-group">
+                <p>總花費: <span id="total-cost">0 元</span></p>
+                <p>總強化次數: <span id="total-enhance-count">0</span></p>
+            </div>
+            <div class="statistics-group">
+                <p>當前破壞機率: <span id="destruction-rate">0%</span></p>
+                <p>上次破壞機率: <span id="previous-destruction-rate">0%</span></p>
+            </div>
+        </div>
+    </div>
+    <button id="scroll-top">返回頂部</button>
+    <div id="max-star-reached" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p style="color: red;">裝備已成功強化至30星，總共強化了 <span id="total-enhance-count-modal">0</span> 次。</p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
